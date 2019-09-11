@@ -1,17 +1,102 @@
-* {
-  margin:0px;
-  padding:0px;
+:root {
+	--h1-text-width: 2em;
+	--h1-text-multiplier: 2.9;
 }
 
-#octocat {
-  display: block;
-  width:384px;
-  margin: 50px auto;
+body {
+	background-color: black;
+	color: green;
+}
+
+@media only screen and (min-width: 1030px) {
+	body {
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+}
+
+h1 {
+	background-color: black;
+	color: green;
+	text-shadow: 0em 0em 0.2em green;
+	font-family: monospace;
+	font-size: var(--h1-text-width);
+	letter-spacing: 0.1em;
+}
+
+.terminal-text {
+    display: inline-block;
+	overflow: hidden;
+ 	animation: terminal-typing 2s steps(9, end) 1s both;
+    white-space: nowrap;
+}
+
+@keyframes terminal-typing {
+	0% { width: 0 }
+	1% { width: 0; opacity: 1; }
+	100% { width: calc(var(--h1-text-multiplier) * var(--h1-text-width)); opacity: 1; }
+}
+
+.terminal-block {
+	display: inline-block;
+	overflow: hidden;
+	animation: blink 2s step-start 4s infinite;
+}
+
+@keyframes blink {
+	50% { opacity: 0; }
+}
+
+.body-container {
+	display: flex;
+}
+
+.body-left {
+	flex: 0 0 90%;
+	animation: body-fade-in 1s 3s both;
+}
+
+.body-right {
+	flex: 1;
+	animation: body-fade-in 1s 4s both;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	background-color: midnightblue;
+	border-radius: 1em;
+}
+
+.body-right img {
+	width: 70%;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 p {
-  display: block;
-  width: 400px;
-  margin: 50px auto;
-  font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+	font-family: monospace;
 }
+
+@keyframes body-fade-in {
+	from { opacity: 0 }
+	to { opacity: 1 }
+}
+
+p a {
+	text-decoration: underline;
+	text-shadow: 0em 0em 0.1em inherit;
+}
+
+p a:link {
+	color: teal;
+}
+
+p a:hover {
+	color: steelblue;
+}
+
+p a:visited {
+	color: olivedrab;
+}
+
