@@ -5,10 +5,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Kim Säppi</title>
 	<link href="styles.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="typing-animation.js"></script>
 </head>
 
 <body>
-	<h1><span class="terminal-text">Kim Säppi</span><span class="terminal-block">&#9608;</span></h1>
+	<h1><span id="header-animation"></span><span class="terminal-block">&#9608;</span></h1>
 	<div class="body-container">
 		<div class="body-left">
 			<p>Programming student at <a href="https://www.hive.fi/en/">Hive Helsinki</a> since 10/2019. Hoping to move into webdev.</p>
@@ -18,5 +19,10 @@
 			<a href="https://www.linkedin.com/in/kim-s%C3%A4ppi/"><img src="images/linkedin_green.png" alt="My LinkedIn"></a>
 		</div>
 	</div>
+
+	
+	<script>
+		typing_effect("Kim Säppi", 200, "header-animation", 0);
+	</script>
 </body>
 </html>

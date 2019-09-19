@@ -24,22 +24,13 @@ h1 {
 	letter-spacing: 0.1em;
 }
 
-.terminal-text {
-    display: inline-block;
-	overflow: hidden;
- 	animation: terminal-typing 2s steps(9, end) 1s both;
-    white-space: nowrap;
-}
-
-@keyframes terminal-typing {
-	0% { width: 0 }
-	1% { width: 0; opacity: 1; }
-	100% { width: calc(var(--h1-text-multiplier) * var(--h1-text-width)); opacity: 1; }
+#header-animation {
+	overflow: visible;
+	display: inline-block;
 }
 
 .terminal-block {
 	display: inline-block;
-	overflow: hidden;
 	animation: blink 2s step-start 4s infinite;
 }
 
@@ -76,6 +67,7 @@ h1 {
 
 p {
 	font-family: monospace;
+	word-wrap: break-word;
 }
 
 @keyframes body-fade-in {
