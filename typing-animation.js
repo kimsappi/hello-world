@@ -1,62 +1,47 @@
-/*function typing_clear_typo(str, delay, element_id, n)
+/* Updated: 22.9.2019
+ *
+ * HTML typing effect using JavaScript with semi-random delay between strokes
+ * Use:
+ *     Make an element with an id attribute with the inner HTML you want
+ *     Call typing_effect(str: element_id, int: delay)
+ *     delay = lower bound of average delay between keystokes
+ *
+ * By: Kim Säppi
+ */
+
+function typing_effect(element_id, delay)
 {
-	setTimeout(function()
-	{
-		document.getElementById(element_id).innerHTML = str.slice(0, n - 1);
-	}, delay);
+	var str = document.getElementById(element_id).innerHTML;
+	document.getElementById(element_id).innerHTML = "";
+	typing_effect_recursive(str, element_id, delay, 0);
 }
 
-function typing_typo(str, delay, element_id, n)
+function typing_effect_recursive(str, element_id, delay, n)
 {
-	var random_alpha;
-	var random;
-	random = Math.random() * 100 % 26 + "A".charCodeAt(0)
-	if (str.charCodeAt(n) > "Z".charCodeAt(0))
-	{
-		random += "a".charCodeAt(0) - "A".charCodeAt(0)
-	}
-	random_alpha = String.fromCharCode(random);
-	setTimeout(function()
-	{
-		document.getElementById(element_id).innerHTML = str.slice(0, n - 1) + random_alpha;
-	}, delay);
-	setTimeout(function()
-	{
-		typing_clear_typo(str, delay, element_id, n);
-	}, delay);
-}*/
-
-function typing_effect(str, delay, element_id, n)
-{
-	//var typo = 0;
 	setTimeout(function()
 	{
 		if (n < str.length)
 		{
 			var next_char = str[n];
 			if (next_char == " ")
-			{
 				next_char = "&nbsp;"
-			}
-			document.getElementById(element_id).innerHTML = document.getElementById(element_id).innerHTML + next_char;
-			n++;
-			/*if (Math.random() < 0.3)
+			if (next_char == "<")
 			{
-				typing_typo(str, delay, element_id, n);
-				typo = 1
-			}*/
-			//setTimeout(function()
-			//{
-				typing_effect(str, delay, element_id, n);
-			//}, (n - 1 % 1) * delay + Math.random() * delay);
+				var brackets = 1;
+				for (i = ++n; brackets != 0; i++)
+				{
+					next_char += str[i];
+					if (str[i] == "<")
+						brackets++;
+					else if(str[i] == ">")
+						brackets--;
+					n++;
+				}
+				next_char += str[i];
+			}
+			document.getElementById(element_id).innerHTML += next_char;
+			n++;
+				typing_effect_recursive(str, element_id, delay, n);
 		}
-	}, delay + Math.random() * delay);
-	/*if (str == 0)
-	{
-		setTimeout(function()
-		{
-			document.getElementById(element_id).innerHTML = str;
-		}, delay * 3 * str.length);
-		
-	}*/
+	}, delay + Math.random() * delay * 2);
 }
