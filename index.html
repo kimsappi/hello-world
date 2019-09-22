@@ -5,23 +5,32 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Kim Säppi</title>
 	<link href="styles.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="typing-animation.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+  	<script src="typing-animation.js" type="text/javascript"></script>
+	<script src="background-code.js" type="text/javascript"></script>
 </head>
 
 <body>
-	<h1><span id="header-animation">Kim Säppi</span><span class="terminal-block">&#9608;</span></h1>
-	<div class="body-container">
-		<div class="body-left">
-			<p>Programming student at <a href="https://www.hive.fi/en/">Hive Helsinki</a> since 10/2019. Hoping to move into webdev.</p>
-		</div>
-		<div class="body-right">
-			<a href="https://github.com/kimsappi"><img src="images/github_green.png" alt="My Github"></a>
-			<a href="https://www.linkedin.com/in/kim-s%C3%A4ppi/"><img src="images/linkedin_green.png" alt="My LinkedIn"></a>
+	<div id="foreground">
+		<h1><span id="header-animation">Kim Säppi</span><span class="terminal-block">&#9608;</span></h1>
+		<div class="body-container">
+			<div class="body-left">
+				<p>Programming student at <a href="https://www.hive.fi/en/">Hive Helsinki</a> since 10/2019. Hoping to move into webdev.</p>
+			</div>
+			<div class="body-right">
+				<a href="https://github.com/kimsappi"><img src="images/github_green.png" alt="My Github"></a>
+				<a href="https://www.linkedin.com/in/kim-s%C3%A4ppi/"><img src="images/linkedin_green.png" alt="My LinkedIn"></a>
+			</div>
 		</div>
 	</div>
+	<div id="background-code"></div>
 
 	<script>
 		typing_effect("header-animation", 60);
+		background_code("background-code", 10,
+			"https://raw.githubusercontent.com/minexew/TempleOS/archive/Kernel/Job.HC"); // RIP Terry A. Davis
 	</script>
 </body>
 </html>

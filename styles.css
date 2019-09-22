@@ -3,10 +3,23 @@
 	--h1-text-multiplier: 2.9;
 }
 
+html, body {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	border-top: 0;
+	border-bottom: 0;
+}
+
 body {
+	position: relative;
 	background-color: black;
 	color: green;
+	height: 97vh;
 }
+
+
 
 @media only screen and (min-width: 1030px) {
 	body {
@@ -15,8 +28,22 @@ body {
 	}
 }
 
+#foreground {
+	position: relative;
+}
+
+#background-code {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+	color: rgb(30,30,30);
+	font-family: monospace;
+	font-size: 0.8em;
+}
+
 h1 {
-	background-color: black;
 	color: green;
 	text-shadow: 0em 0em 0.2em green;
 	font-family: monospace;
@@ -31,7 +58,7 @@ h1 {
 
 .terminal-block {
 	display: inline-block;
-	animation: blink 2s step-start 4s infinite;
+	animation: blink 2s step-start 2.5s infinite;
 }
 
 @keyframes blink {

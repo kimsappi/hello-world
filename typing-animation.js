@@ -25,6 +25,8 @@ function typing_effect_recursive(str, element_id, delay, n)
 			var next_char = str[n];
 			if (next_char == " ")
 				next_char = "&nbsp;"
+			if (next_char == "\n")
+				next_char = "<br>"
 			if (next_char == "<")
 			{
 				var brackets = 1;
