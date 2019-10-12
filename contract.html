@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<style>
+			table { width: 100%; }
+			table, td, th {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			th {
+				border-bottom: hidden;
+			}
+			#logocell {
+				border-bottom: 1px solid black;
+			}
+		</style>
+		<script>
+				function printContract() {
+					var logo = document.createElement('img');
+					logo.src = 'images/yeet.png';
+					var table = document.createElement('table');
+					var row0 = document.createElement('tr');
+					var row05 = document.createElement('tr');
+					var r0t0 = document.createElement('th');
+					var r0t1 = document.createElement('th');
+					var r05t0 = document.createElement('th');
+					var r05t1 = document.createElement('td');
+					var row1 = document.createElement('tr');
+					var row2 = document.createElement('tr');
+					var th1 = document.createElement('th');
+					var th2 = document.createElement('th');
+					var th3 = document.createElement('th');
+					var td1 = document.createElement('td');
+					var td2 = document.createElement('td');
+					var td3 = document.createElement('td');
+
+					r0t0.appendChild(logo);
+					r0t0.id = 'logocell';
+					r05t0.innerHTML = 'Y-tunnus'
+					row0.appendChild(r0t0);
+					r05t1.innerHTML = '123456-7'
+					row0.appendChild(r05t0);
+					row05.appendChild(r05t1);
+					table.appendChild(row0);
+					table.appendChild(row05);
+					r0t0.rowSpan = 2;
+					r0t0.colSpan = 2;
+
+					th1.innerHTML = 'Yritys';
+					th2.innerHTML = 'Nimi';
+					th3.innerHTML = 'Puhelinnumero';
+					table.style.textAlign = 'left';
+					row1.appendChild(th1);
+					row1.appendChild(th2);
+					row1.appendChild(th3);
+					table.appendChild(row1);
+
+					var company = document.getElementById("company");
+					td1.innerHTML = company.options[company.selectedIndex].text;
+					td2.innerHTML = document.getElementById("name").value;
+					td3.innerHTML = document.getElementById("phone").value;
+					row2.appendChild(td1);
+					row2.appendChild(td2);
+					row2.appendChild(td3);
+					table.appendChild(row2);
+
+					document.getElementById("body").innerHTML = table.outerHTML;
+					document.getElementById("body").style.width = "21cm";
+					document.getElementById("body").style.textAlign ="left";
+				}
+
+				function eType() {
+					console.log(pKkpalkka);
+					if (document.getElementById("pKkpalkka")) {
+						document.getElementById("pKkpalkka").outerHTML = "";
+						document.getElementById("pTuntipalkka").outerHTML = "";
+					}
+					if (document.getElementById("eType").value === "th" ||
+					document.getElementById("eType").value === "yth") {
+						var pKkpalkka = document.createElement("p");
+						var pTuntipalkka = document.createElement("p");
+						pKkpalkka.id = "pKkpalkka";
+						pTuntipalkka.id = "pTuntipalkka";
+						var kkpalkka = document.createElement("input");
+						kkpalkka.type = "radio";
+						kkpalkka.name = "palkka";
+						var tuntipalkka = document.createElement("input");
+						tuntipalkka.type = "radio";
+						tuntipalkka.name = "palkka";
+						pKkpalkka.appendChild(kkpalkka);
+						pTuntipalkka.appendChild(tuntipalkka);
+						pKkpalkka.innerHTML += "Kuukausipalkka";
+						pTuntipalkka.innerHTML += "Tuntipalkka";
+						document.getElementById("body").appendChild(pKkpalkka);
+						document.getElementById("body").appendChild(pTuntipalkka);
+					} else {
+						var pKkpalkka = document.createElement("p");
+						var pTuntipalkka = document.createElement("p");
+						var kkpalkka = document.createElement("input");
+						kkpalkka.type = "radio";
+						kkpalkka.name = "palkka";
+						var tuntipalkka = document.createElement("input");
+						tuntipalkka.type = "radio";
+						tuntipalkka.name = "palkka";
+						pKkpalkka.appendChild(kkpalkka);
+						pTuntipalkka.appendChild(tuntipalkka);
+						pKkpalkka.innerHTML += "Talonrakennusalan TES";
+						pTuntipalkka.innerHTML += "Maa- ja vesirakennusalan TES";
+						document.getElementById("body").appendChild(pKkpalkka);
+						document.getElementById("body").appendChild(pTuntipalkka);
+					}
+				}
+			</script>
+	</head>
+	<body id="body">
+		<p>Yritys:
+		<select id="company">
+				<option value="null"></option>
+				<option value="suomi">YEET Suomi Oy</option>
+				<option value="oyj">YEET Oyj</option>
+		</select></p>
+		<p>Nimi: <input id="name"></p>
+		<p>Puhelinnumero: <input id="phone"></p>
+		<p>Työntekijätyyppi:
+			<select id="eType" onchange="eType()">
+					<option value="null"></option>
+					<option value="th">Toimihenkilö</option>
+					<option value="yth">Ylempi toimihenkilö</option>
+					<option value="tt">Työntekijä</option>
+			</select>
+		</p>
+
+		<button onclick="printContract()">Valmis</button>
+	</body>
+	
+</html>
