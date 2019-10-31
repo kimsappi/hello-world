@@ -15,6 +15,26 @@
 			#errors {
 				color: red;
 			}
+			.tooltip {
+				position: relative;
+				display: inline-block;
+				text-decoration: underline;
+				color: blue;
+			}
+			.tooltip .tooltip-text {
+				text-decoration: none;
+				color: black;
+				visibility: hidden;
+				background-color: lightgray;
+				padding: 0.5vw;
+				border-radius: 0.2vw;
+				position: absolute;
+			}
+			.tooltip:hover .tooltip-text {
+				text-decoration: none;
+				color: black;
+				visibility: visible;
+			}
 		</style>
 		<script>
 			function printContract() {
@@ -138,7 +158,8 @@
 				<option value="suomi">YEET Suomi Oy</option>
 				<option value="oyj">YEET Oyj</option>
 		</select></p>
-		<p>Nimi: <input id="name"></p>
+		<p>Nimi<sup class="tooltip">?
+			<span class="tooltip-text">Esimerkki</span></sup>: <input id="name"></p>
 		<p>Puhelinnumero: <input id="phone"></p>
 		<p>Työntekijätyyppi:
 			<select id="eType" onchange="eType()">
