@@ -13,7 +13,7 @@
 
 		<script>
 		/* Open webcam stream and direct it to <video>, alert if error */
-			navigator.mediaDevices.getUserMedia({video: {facingMode: "user"}, audio: false})
+			navigator.mediaDevices.getUserMedia({video: {facingMode: "environment"}, audio: false})
 				.then((mediaStream) =>
 				{
 					/* Set webcam to stream to #webcam element */
